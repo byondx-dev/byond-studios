@@ -33,10 +33,15 @@ const BackToTop: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-lg hover:shadow-xl z-40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
+          className="fixed bottom-8 right-8 p-3 rounded-full text-white shadow-lg hover:shadow-xl z-40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 overflow-hidden group animate-shine"
+          style={{
+            backgroundSize: '200% 100%',
+            backgroundImage: 'linear-gradient(110deg, #334155 45%, #94a3b8 50%, #334155 55%)', // Silver shine on dark slate base
+            animationDuration: '3s'
+          }}
           aria-label="Back to top"
         >
-          <ArrowUp size={20} />
+          <ArrowUp size={20} className="relative z-10" />
         </motion.button>
       )}
     </AnimatePresence>

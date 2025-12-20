@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../theme/theme';
 import ShinyText from './ShinyText';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -28,9 +29,14 @@ const Navbar: React.FC = () => {
         <Link to="/" className="text-xl font-bold tracking-tight flex items-center gap-2">
           <ShinyText
             text="Byond Studios"
-            disabled={theme !== 'dark'}
+            disabled={false}
             speed={3}
-            className={`font-black tracking-tighter ${theme === 'dark' ? '' : 'text-slate-900'}`}
+            className={`font-black tracking-tighter text-transparent bg-clip-text`}
+            style={{
+              '--shiny-base': theme === 'dark'
+                ? 'linear-gradient(to right, #94a3b8, #94a3b8)' // Solid Silver Base (Dark Mode)
+                : 'linear-gradient(to right, #334155, #334155)' // Solid Dark Slate Base (Light Mode)
+            } as React.CSSProperties}
           />
         </Link>
 
@@ -83,28 +89,36 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute top-full mt-2 left-0 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-4 flex flex-col gap-4 md:hidden animate-in fade-in slide-in-from-top-2">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-lg font-medium px-4 py-2 rounded-lg ${location.pathname === link.path
-                ? 'bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400'
-                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
-                }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link
-            to="/contact"
-            className="bg-violet-600 text-center text-white py-3 rounded-xl font-medium mt-2"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full mt-2 left-0 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-4 flex flex-col gap-4 md:hidden"
           >
-            Start Project
-          </Link>
-        </div>
-      )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-lg font-medium px-4 py-2 rounded-lg ${location.pathname === link.path
+                  ? 'bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400'
+                  : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                  }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link
+              to="/contact"
+              className="bg-violet-600 text-center text-white py-3 rounded-xl font-medium mt-2"
+            >
+              Start Project
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

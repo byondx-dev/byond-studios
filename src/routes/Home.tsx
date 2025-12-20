@@ -5,11 +5,21 @@ import Reveal from '../components/Reveal';
 import ServiceCard from '../components/ServiceCard';
 import { Layout, ShoppingBag, Smartphone, User, Code, Zap, HeartHandshake } from 'lucide-react';
 
+import ShinyText from '../components/ShinyText';
+import { useTheme } from '../theme/theme';
+
 const Home: React.FC = () => {
-  
+  const { theme } = useTheme();
+
   useEffect(() => {
     document.title = "Byond Studios | Websites & Apps";
   }, []);
+
+  const shinySilverStyle = {
+    '--shiny-base': theme === 'dark'
+      ? 'linear-gradient(to right, #94a3b8, #94a3b8)' // Solid Silver Base (Dark Mode)
+      : 'linear-gradient(to right, #334155, #334155)' // Solid Dark Slate Base (Light Mode)
+  } as React.CSSProperties;
 
   const services = [
     {
@@ -48,20 +58,26 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden">
       <Hero />
-      
+
       {/* Services Grid */}
       <Section id="services">
         <Reveal>
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-              What We Build
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <ShinyText
+                text="What We Build"
+                disabled={false}
+                speed={3}
+                className="font-bold text-transparent bg-clip-text"
+                style={shinySilverStyle}
+              />
             </h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
               We focus on digital products that generate value. No bloat, just performance.
             </p>
           </div>
         </Reveal>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <Reveal key={i} delay={i * 0.1} width="100%">
@@ -74,23 +90,29 @@ const Home: React.FC = () => {
       {/* Process Section */}
       <Section className="bg-slate-50 dark:bg-slate-900/50">
         <Reveal>
-          <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-16">
-            How It Works
+          <h2 className="text-3xl font-bold text-center mb-16">
+            <ShinyText
+              text="How It Works"
+              disabled={false}
+              speed={3}
+              className="font-bold text-transparent bg-clip-text"
+              style={shinySilverStyle}
+            />
           </h2>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
           {/* Connector Line (Desktop) */}
           <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gradient-to-r from-violet-200 via-violet-500 to-violet-200 opacity-30"></div>
-          
+
           {steps.map((step, i) => (
             <Reveal key={i} delay={i * 0.15} width="100%">
               <div className="relative text-center group">
-                 <div className="w-16 h-16 mx-auto bg-white dark:bg-slate-800 rounded-full border-2 border-violet-100 dark:border-slate-700 flex items-center justify-center text-xl font-bold text-violet-600 mb-6 relative z-10 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                   {step.num}
-                 </div>
-                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{step.title}</h3>
-                 <p className="text-sm text-slate-600 dark:text-slate-400 px-4">{step.text}</p>
+                <div className="w-16 h-16 mx-auto bg-white dark:bg-slate-800 rounded-full border-2 border-violet-100 dark:border-slate-700 flex items-center justify-center text-xl font-bold text-violet-600 mb-6 relative z-10 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  {step.num}
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{step.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400 px-4">{step.text}</p>
               </div>
             </Reveal>
           ))}
@@ -102,7 +124,13 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <Reveal width="100%">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
-              Built for Performance <br />
+              <ShinyText
+                text="Built for Performance"
+                disabled={false}
+                speed={3}
+                className="font-bold text-transparent bg-clip-text"
+                style={shinySilverStyle}
+              /> <br />
               <span className="text-violet-600">and Scale.</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
@@ -122,25 +150,25 @@ const Home: React.FC = () => {
               ))}
             </div>
           </Reveal>
-          
+
           <Reveal width="100%" delay={0.2}>
             <div className="bg-slate-900 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
-               {/* Decorative Code block look */}
-               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
-               <div className="font-mono text-sm text-slate-300 space-y-2">
-                 <div className="flex gap-2 mb-4">
-                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                 </div>
-                 <p><span className="text-purple-400">const</span> <span className="text-blue-400">project</span> = <span className="text-purple-400">await</span> byond.<span className="text-yellow-400">build</span>({'{'}</p>
-                 <p className="pl-4">quality: <span className="text-green-400">'Premium'</span>,</p>
-                 <p className="pl-4">performance: <span className="text-orange-400">100</span>,</p>
-                 <p className="pl-4">deadline: <span className="text-green-400">'On Time'</span></p>
-                 <p>{'}'});</p>
-                 <p className="text-slate-500">// Result: A happy client</p>
-                 <p><span className="text-blue-400">console</span>.<span className="text-yellow-400">log</span>(<span className="text-green-400">"Launch Successful 🚀"</span>);</p>
-               </div>
+              {/* Decorative Code block look */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+              <div className="font-mono text-sm text-slate-300 space-y-2">
+                <div className="flex gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <p><span className="text-purple-400">const</span> <span className="text-blue-400">project</span> = <span className="text-purple-400">await</span> byond.<span className="text-yellow-400">build</span>({'{'}</p>
+                <p className="pl-4">quality: <span className="text-green-400">'Premium'</span>,</p>
+                <p className="pl-4">performance: <span className="text-orange-400">100</span>,</p>
+                <p className="pl-4">deadline: <span className="text-green-400">'On Time'</span></p>
+                <p>{'}'});</p>
+                <p className="text-slate-500">// Result: A happy client</p>
+                <p><span className="text-blue-400">console</span>.<span className="text-yellow-400">log</span>(<span className="text-green-400">"Launch Successful 🚀"</span>);</p>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -159,12 +187,12 @@ const Home: React.FC = () => {
             { q: "Can I edit content myself?", a: "Absolutely. We can integrate a CMS so you can update text and images easily." },
             { q: "Do you provide support after launch?", a: "Yes, we offer monthly maintenance packages to keep everything secure and updated." }
           ].map((item, i) => (
-             <Reveal key={i} delay={i * 0.1} width="100%">
-               <div className="border border-slate-200 dark:border-slate-800 rounded-lg p-5 bg-white dark:bg-slate-900/40">
-                 <h4 className="font-semibold text-slate-900 dark:text-white mb-2">{item.q}</h4>
-                 <p className="text-slate-600 dark:text-slate-400 text-sm">{item.a}</p>
-               </div>
-             </Reveal>
+            <Reveal key={i} delay={i * 0.1} width="100%">
+              <div className="border border-slate-200 dark:border-slate-800 rounded-lg p-5 bg-white dark:bg-slate-900/40">
+                <h4 className="font-semibold text-slate-900 dark:text-white mb-2">{item.q}</h4>
+                <p className="text-slate-600 dark:text-slate-400 text-sm">{item.a}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </Section>
