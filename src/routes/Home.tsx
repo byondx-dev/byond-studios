@@ -6,7 +6,9 @@ import ServiceCard from '../components/ServiceCard';
 import { Layout, ShoppingBag, Smartphone, User, Code, Zap, HeartHandshake } from 'lucide-react';
 
 import ShinyText from '../components/ShinyText';
+import TextLoop from '../components/TextLoop';
 import { useTheme } from '../theme/theme';
+import ProcessTimeline from '../components/ProcessTimeline';
 
 const Home: React.FC = () => {
   const { theme } = useTheme();
@@ -58,6 +60,7 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden">
       <Hero />
+      <TextLoop />
 
       {/* Services Grid */}
       <Section id="services">
@@ -87,36 +90,28 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* Process Section */}
-      <Section className="bg-slate-50 dark:bg-slate-900/50">
+
+
+      {/* Process Section - Modern Redesign */}
+      <Section className="relative z-10">
         <Reveal>
-          <h2 className="text-3xl font-bold text-center mb-16">
-            <ShinyText
-              text="How It Works"
-              disabled={false}
-              speed={3}
-              className="font-bold text-transparent bg-clip-text"
-              style={shinySilverStyle}
-            />
-          </h2>
+          <div className="mb-20 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <ShinyText
+                text="How It Works"
+                disabled={false}
+                speed={3}
+                className="font-bold text-transparent bg-clip-text"
+                style={shinySilverStyle}
+              />
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              No complex workflows. Just a streamlined path to your digital product.
+            </p>
+          </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gradient-to-r from-violet-200 via-violet-500 to-violet-200 opacity-30"></div>
-
-          {steps.map((step, i) => (
-            <Reveal key={i} delay={i * 0.15} width="100%">
-              <div className="relative text-center group">
-                <div className="w-16 h-16 mx-auto bg-white dark:bg-slate-800 rounded-full border-2 border-violet-100 dark:border-slate-700 flex items-center justify-center text-xl font-bold text-violet-600 mb-6 relative z-10 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  {step.num}
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 px-4">{step.text}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <ProcessTimeline />
       </Section>
 
       {/* Tech & Quality */}

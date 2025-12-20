@@ -1,18 +1,25 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
     server: {
-      port: 3000,
-      host: '0.0.0.0', // Necessary for WSL -> Windows forwarding
+      port: 5173,
+      host: '0.0.0.0',
+      watch: {
+        usePolling: true, // Fix for WSL2 on Windows filesystem
+      },
       hmr: {
-        clientPort: 3000, // Explicitly tell the browser to connect to port 3000
+        clientPort: 5173,
       }
     },
-    plugins: [react()],
+    plugins: [
+      tailwindcss(),
+      react()
+    ],
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)

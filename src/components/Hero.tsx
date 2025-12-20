@@ -5,12 +5,16 @@ import Reveal from './Reveal';
 import ShinyText from './ShinyText';
 import { ArrowRight } from 'lucide-react';
 
+import { useTheme } from '../theme/theme';
+
 const Hero: React.FC = () => {
+  const { theme } = useTheme();
+
   return (
     <section className="relative w-full h-[700px] md:h-[800px] flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
 
       {/* Background with WebGL */}
-      <div className="absolute inset-0 w-full h-full opacity-60">
+      <div className="absolute inset-0 w-full h-full">
         <FloatingLines
           enabledWaves={['top', 'middle', 'bottom']}
           lineCount={[10, 15, 20]}
@@ -20,6 +24,7 @@ const Hero: React.FC = () => {
           interactive={true}
           parallax={true}
           linesGradient={['#8b5cf6', '#a855f7', '#6366f1']}
+          mixBlendMode={theme === 'dark' ? 'screen' : 'normal'}
         />
       </div>
 
@@ -91,17 +96,7 @@ const Hero: React.FC = () => {
           </div>
         </Reveal>
 
-        {/* Trust Chips */}
-        <Reveal width="100%" delay={0.6}>
-          <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-8 opacity-70">
-            {['Fast Delivery', 'Modern Tech Stack', 'SEO Optimized', 'Mobile First'].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm font-medium">
-                <div className="w-1.5 h-1.5 rounded-full bg-violet-600 dark:bg-violet-500" />
-                {item}
-              </div>
-            ))}
-          </div>
-        </Reveal>
+
       </div>
 
       {/* Gradient fade at bottom to merge with next section */}
