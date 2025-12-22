@@ -100,7 +100,7 @@ const Services: React.FC = () => {
             {detailedServices.map((section, idx) => (
               <div key={idx}>
                 <Reveal>
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 border-l-4 border-violet-500 pl-4">
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 border-l-4 border-blue-500 pl-4">
                     {section.category}
                   </h2>
                 </Reveal>
@@ -108,9 +108,9 @@ const Services: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {section.items.map((item, i) => (
                     <Reveal key={i} delay={i * 0.1} width="100%">
-                      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 h-full flex flex-col hover:border-violet-500/50 transition-colors">
+                      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 h-full flex flex-col hover:border-blue-500/50 transition-colors">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="p-2 bg-violet-100 dark:bg-violet-900/20 text-violet-600 rounded-lg">
+                          <div className="p-2 bg-blue-100 dark:bg-blue-900/20 text-blue-600 rounded-lg">
                             {item.icon}
                           </div>
                           <h3 className="text-xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
@@ -129,7 +129,7 @@ const Services: React.FC = () => {
                           <ul className="space-y-2">
                             {item.features.map((feat, f) => (
                               <li key={f} className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-                                <div className="w-1 h-1 bg-violet-500 rounded-full"></div>
+                                <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
                                 {feat}
                               </li>
                             ))}
@@ -144,17 +144,17 @@ const Services: React.FC = () => {
           </div>
 
           <Reveal width="100%">
-            <div className="mt-20 p-8 md:p-12 bg-violet-600 rounded-3xl text-center text-white relative overflow-hidden">
+            <div className="mt-20 p-8 md:p-12 bg-blue-600 rounded-3xl text-center text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 p-32 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 p-32 bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
 
               <h3 className="text-2xl md:text-3xl font-bold mb-4 relative z-10">Ready to start your project?</h3>
-              <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10">
+              <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10">
                 Stop guessing and start building. Let's discuss your requirements and find the best solution for your budget.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-white text-violet-600 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition-colors relative z-10"
+                className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition-colors relative z-10"
               >
                 Get a Quote <ArrowRight size={18} />
               </Link>

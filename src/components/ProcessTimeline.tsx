@@ -46,19 +46,19 @@ const ProcessTimeline: React.FC = () => {
                     >
                         {/* Connector Line */}
                         {index !== steps.length - 1 && (
-                            <div className="absolute left-[23px] md:left-[29px] top-16 bottom-[-48px] w-0.5 bg-gradient-to-b from-violet-500/50 to-slate-800" />
+                            <div className="absolute left-[23px] md:left-[29px] top-16 bottom-[-48px] w-0.5 bg-gradient-to-b from-blue-500/50 to-slate-800" />
                         )}
 
                         {/* Icon Bubble */}
                         <div className="relative shrink-0">
-                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 shadow-xl shadow-violet-500/5 group-hover:border-violet-500/50 group-hover:shadow-violet-500/20 transition-all duration-300 flex items-center justify-center text-slate-400 group-hover:text-violet-600 dark:text-slate-500 dark:group-hover:text-violet-400 z-10">
+                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 shadow-xl shadow-blue-500/5 group-hover:border-blue-500/50 group-hover:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center text-slate-400 group-hover:text-blue-600 dark:text-slate-500 dark:group-hover:text-blue-400 z-10">
                                 {step.icon}
                             </div>
                         </div>
 
                         {/* Content Card */}
                         <div className="flex-1 pt-1 md:pt-3">
-                            <div className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:shadow-2xl hover:shadow-violet-900/10 dark:hover:shadow-violet-900/20 border border-slate-100 dark:border-white/5 hover:border-violet-500/30 transition-all duration-300">
+                            <div className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-blue-900/20 border border-slate-100 dark:border-white/5 hover:border-blue-500/30 transition-all duration-300">
                                 <div className="flex items-center justify-between mb-3">
                                     <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
                                         {step.title}

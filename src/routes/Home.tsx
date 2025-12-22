@@ -129,7 +129,7 @@ const Home: React.FC = () => {
                 className="font-bold text-transparent bg-clip-text"
                 style={shinySilverStyle}
               /> <br />
-              <span className="text-violet-600">and Scale.</span>
+              <span className="text-blue-600">and Scale.</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
               We don't just use templates. We build robust solutions using modern technologies like React, TypeScript, and Tailwind. This ensures your site is fast, accessible, and easy to maintain.
@@ -142,7 +142,7 @@ const Home: React.FC = () => {
                 { icon: <Smartphone />, text: "Fully Responsive" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-white/5 rounded-lg">
-                  <div className="text-violet-500">{item.icon}</div>
+                  <div className="text-blue-500">{item.icon}</div>
                   <span className="font-medium text-slate-700 dark:text-slate-200">{item.text}</span>
                 </div>
               ))}
@@ -152,14 +152,14 @@ const Home: React.FC = () => {
           <Reveal width="100%" delay={0.2}>
             <div className="bg-slate-900 dark:bg-black border border-white/10 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
               {/* Decorative Code block look */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
               <div className="font-mono text-sm text-slate-300 space-y-2">
                 <div className="flex gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <p><span className="text-purple-400">const</span> <span className="text-blue-400">project</span> = <span className="text-purple-400">await</span> byond.<span className="text-yellow-400">build</span>({'{'}</p>
+                <p><span className="text-blue-400">const</span> <span className="text-blue-400">project</span> = <span className="text-blue-400">await</span> byond.<span className="text-yellow-400">build</span>({'{'}</p>
                 <p className="pl-4">quality: <span className="text-green-400">'Premium'</span>,</p>
                 <p className="pl-4">performance: <span className="text-orange-400">100</span>,</p>
                 <p className="pl-4">deadline: <span className="text-green-400">'On Time'</span></p>

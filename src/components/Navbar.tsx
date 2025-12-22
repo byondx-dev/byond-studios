@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-violet-600 dark:hover:text-violet-400 ${location.pathname === link.path ? 'text-violet-600 dark:text-violet-400' : 'text-slate-600 dark:text-slate-300'
+              className={`text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${location.pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'
                 }`}
             >
               {link.name}
@@ -58,14 +58,14 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Toggle Theme"
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <Link
             to="/contact"
-            className="bg-violet-600 hover:bg-violet-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             Start Project
           </Link>
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-lg font-medium px-4 py-2 rounded-lg ${location.pathname === link.path
-                  ? 'bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400'
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
                   : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                   }`}
               >
@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
             ))}
             <Link
               to="/contact"
-              className="bg-violet-600 text-center text-white py-3 rounded-xl font-medium mt-2"
+              className="bg-blue-600 text-center text-white py-3 rounded-xl font-medium mt-2"
             >
               Start Project
             </Link>

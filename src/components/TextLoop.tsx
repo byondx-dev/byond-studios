@@ -64,7 +64,7 @@ const TextLoop: React.FC = () => {
                     }}
                 >
                     {[...phrasesLine2, ...phrasesLine2, ...phrasesLine2].map((text, i) => (
-                        <span key={i} className="py-2 text-2xl md:text-3xl font-medium text-slate-400 dark:text-slate-600 italic hover:text-violet-500 dark:hover:text-violet-400 transition-colors cursor-default select-none">
+                        <span key={i} className="py-2 text-2xl md:text-3xl font-medium text-slate-400 dark:text-slate-600 italic hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-default select-none">
                             "{text}"
                         </span>
                     ))}

@@ -57,19 +57,19 @@ const Contact: React.FC = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-violet-100 dark:bg-violet-900/20 text-violet-600 rounded-lg">
+                    <div className="p-3 bg-blue-100 dark:bg-blue-900/20 text-blue-600 rounded-lg">
                       <Mail size={20} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Email Us</p>
-                      <a href="mailto:hello@byond-studios.com" className="text-slate-900 dark:text-white font-medium hover:text-violet-500 transition-colors">
+                      <a href="mailto:hello@byond-studios.com" className="text-slate-900 dark:text-white font-medium hover:text-blue-500 transition-colors">
                         hello@byond-studios.com
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-violet-100 dark:bg-violet-900/20 text-violet-600 rounded-lg">
+                    <div className="p-3 bg-blue-100 dark:bg-blue-900/20 text-blue-600 rounded-lg">
                       <Clock size={20} />
                     </div>
                     <div>
@@ -82,9 +82,9 @@ const Contact: React.FC = () => {
             </Reveal>
 
             <Reveal width="100%" delay={0.2}>
-              <div className="bg-gradient-to-br from-violet-600 to-indigo-600 p-6 rounded-2xl text-white shadow-lg">
+              <div className="bg-gradient-to-br from-blue-600 to-sky-600 p-6 rounded-2xl text-white shadow-lg">
                 <h3 className="font-bold mb-2">What happens next?</h3>
-                <ul className="space-y-3 text-sm text-violet-100">
+                <ul className="space-y-3 text-sm text-blue-100">
                   <li className="flex items-center gap-2">
                     <span className="bg-white/20 w-5 h-5 flex items-center justify-center rounded-full text-xs">1</span>
                     We review your requirements.
@@ -118,7 +118,7 @@ const Contact: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setStatus('idle')}
-                      className="mt-8 text-violet-600 font-medium hover:underline"
+                      className="mt-8 text-blue-600 font-medium hover:underline"
                     >
                       Send another message
                     </button>
@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                           placeholder="John Doe"
                         />
                       </div>
@@ -148,7 +148,7 @@ const Contact: React.FC = () => {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                           placeholder="john@company.com"
                         />
                       </div>
@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all appearance-none"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all appearance-none"
                         >
                           <option>Business Website</option>
                           <option>E-Commerce / Shop</option>
@@ -178,7 +178,7 @@ const Contact: React.FC = () => {
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all appearance-none"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all appearance-none"
                         >
                           <option value="">Select a range</option>
                           <option value="low">€1k - €3k</option>
@@ -197,7 +197,7 @@ const Contact: React.FC = () => {
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
                         placeholder="Tell us about your project goals..."
                       ></textarea>
                     </div>
@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
                     <button
                       type="submit"
                       disabled={status === 'submitting'}
-                      className="w-full py-4 bg-violet-600 hover:bg-violet-700 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-violet-500/25"
+                      className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-blue-500/25"
                     >
                       {status === 'submitting' ? (
                         <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>

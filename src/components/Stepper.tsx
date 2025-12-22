@@ -141,7 +141,7 @@ export default function Stepper({
                             )}
                             <button
                                 onClick={isLastStep ? handleComplete : handleNext}
-                                className="duration-350 flex items-center justify-center rounded-xl bg-violet-600 py-2 px-6 font-medium tracking-tight text-white transition hover:bg-violet-500 active:bg-violet-700 shadow-lg shadow-violet-500/20"
+                                className="duration-350 flex items-center justify-center rounded-xl bg-blue-600 py-2 px-6 font-medium tracking-tight text-white transition hover:bg-blue-500 active:bg-blue-700 shadow-lg shadow-blue-500/20"
                                 {...nextButtonProps}
                             >
                                 {isLastStep ? 'Complete' : nextButtonText}
@@ -270,8 +270,8 @@ function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators =
             <motion.div
                 variants={{
                     inactive: { scale: 1, backgroundColor: 'rgba(255,255,255,0.05)', color: '#a3a3a3' },
-                    active: { scale: 1, backgroundColor: '#7c3aed', color: '#ffffff' },
-                    complete: { scale: 1, backgroundColor: '#7c3aed', color: '#ffffff' }
+                    active: { scale: 1, backgroundColor: '#2563eb', color: '#ffffff' },
+                    complete: { scale: 1, backgroundColor: '#2563eb', color: '#ffffff' }
                 }}
                 transition={{ duration: 0.3 }}
                 className="flex h-10 w-10 items-center justify-center rounded-full font-bold border border-white/10"
@@ -293,7 +293,7 @@ interface StepConnectorProps {
 function StepConnector({ isComplete }: StepConnectorProps) {
     const lineVariants: Variants = {
         incomplete: { width: 0, backgroundColor: 'transparent' },
-        complete: { width: '100%', backgroundColor: '#7c3aed' }
+        complete: { width: '100%', backgroundColor: '#2563eb' }
     };
 
     return (

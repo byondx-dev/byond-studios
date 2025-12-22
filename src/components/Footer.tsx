@@ -21,9 +21,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
-          <Link to="/" className="hover:text-violet-600 transition-colors">Home</Link>
-          <Link to="/services" className="hover:text-violet-600 transition-colors">Services</Link>
-          <Link to="/contact" className="hover:text-violet-600 transition-colors">Contact</Link>
+          <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+          <Link to="/services" className="hover:text-blue-600 transition-colors">Services</Link>
+          <Link to="/contact" className="hover:text-blue-600 transition-colors">Contact</Link>
         </div>
 
         <div className="flex gap-4">
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
             <a
               key={i}
               href="#"
-              className="text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+              className="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="Social Link"
             >
               <Icon size={20} />

@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
           bendStrength={-0.5}
           interactive={true}
           parallax={true}
-          linesGradient={['#8b5cf6', '#a855f7', '#6366f1']}
+          linesGradient={['#3b82f6', '#2563eb', '#0ea5e9']}
           mixBlendMode={'screen'}
           globalScale={isMobile ? 1.5 : 1.0}
           backgroundColor={'#000000'}
@@ -47,15 +47,15 @@ const Hero: React.FC = () => {
           <h1
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight drop-shadow-lg"
             style={{
-              '--hero-gradient': 'var(--shiny-gradient-light, linear-gradient(to right, #7c3aed, #4f46e5))', // fallback light (violet-600)
+              '--hero-gradient': 'var(--shiny-gradient-light, linear-gradient(to right, #2563eb, #0284c7))', // fallback light (blue-600)
             } as React.CSSProperties}
           >
             {/* CSS Variable injection for mode-aware gradient */}
             <span className="hidden dark:block" style={{ display: 'none' }} aria-hidden="true">
             </span>
             <style>{`
-                :root { --hero-shine-base: linear-gradient(to right, #7c3aed, #4f46e5); }
-                .dark { --hero-shine-base: linear-gradient(to right, #a78bfa, #818cf8); }
+                :root { --hero-shine-base: linear-gradient(to right, #2563eb, #0284c7); }
+                .dark { --hero-shine-base: linear-gradient(to right, #60a5fa, #38bdf8); }
             `}</style>
 
             Websites & Apps <br className="hidden md:block" />
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
               text="That Drive Business."
               disabled={false}
               speed={4}
-              shineColor="167, 139, 250"
+              shineColor="96, 165, 250"
               className="font-bold pb-2"
               style={{
                 '--shiny-base': 'var(--hero-shine-base)'
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/services"
-              className="w-full sm:w-auto px-6 py-2.5 sm:px-8 sm:py-3.5 bg-violet-600 hover:bg-violet-700 text-white rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] flex items-center justify-center gap-2 text-sm sm:text-base"
+              className="w-full sm:w-auto px-6 py-2.5 sm:px-8 sm:py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               View Services <ArrowRight size={18} />
             </Link>

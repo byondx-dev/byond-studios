@@ -64,7 +64,7 @@ const CostEstimator: React.FC = () => {
                 }}
                 backButtonText="Back"
                 nextButtonText="Next"
-                stepCircleContainerClassName="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-2xl shadow-violet-900/5 dark:shadow-violet-900/10"
+                stepCircleContainerClassName="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-2xl shadow-blue-900/5 dark:shadow-blue-900/10"
                 stepContainerClassName="border-b border-slate-200 dark:border-slate-800"
                 contentClassName="py-8 min-h-[400px]"
                 footerClassName="border-t border-slate-200 dark:border-slate-800 pt-6"
@@ -80,11 +80,11 @@ const CostEstimator: React.FC = () => {
                                     onClick={() => updateField('type', type)}
                                     className={`p-6 rounded-2xl border transition-all flex items-center gap-4 group text-left
                                         ${formData.type === type
-                                            ? 'bg-violet-600 border-violet-500 text-white shadow-lg shadow-violet-500/25'
-                                            : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-violet-500/50 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                            ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/25'
+                                            : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 hover:bg-slate-100 dark:hover:bg-slate-800'
                                         }`}
                                 >
-                                    <div className={`p-3 rounded-full ${formData.type === type ? 'bg-white/20' : 'bg-white dark:bg-slate-800 group-hover:bg-violet-100 dark:group-hover:bg-slate-700 text-slate-900 dark:text-slate-100'}`}>
+                                    <div className={`p-3 rounded-full ${formData.type === type ? 'bg-white/20' : 'bg-white dark:bg-slate-800 group-hover:bg-blue-100 dark:group-hover:bg-slate-700 text-slate-900 dark:text-slate-100'}`}>
                                         <span className={formData.type === type ? 'text-white' : 'text-slate-700 dark:text-slate-300'}>
                                             {type === 'Mobile App' ? <Smartphone size={24} /> : <Globe size={24} />}
                                         </span>
@@ -110,11 +110,11 @@ const CostEstimator: React.FC = () => {
                                     onClick={() => toggleFeature(id)}
                                     className={`p-4 rounded-xl border transition-all flex flex-col items-center gap-3 text-center
                                         ${formData.features.includes(id)
-                                            ? 'bg-violet-100 dark:bg-violet-900/40 border-violet-500 text-violet-900 dark:text-white shadow-[0_0_15px_rgba(139,92,246,0.3)]'
+                                            ? 'bg-blue-100 dark:bg-blue-900/40 border-blue-500 text-blue-900 dark:text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]'
                                             : 'bg-slate-50 dark:bg-slate-900/30 border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-900'
                                         }`}
                                 >
-                                    <Icon size={28} className={formData.features.includes(id) ? 'text-violet-600 dark:text-violet-400' : 'text-slate-400 dark:text-slate-600'} />
+                                    <Icon size={28} className={formData.features.includes(id) ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-600'} />
                                     <span className="font-medium">{label}</span>
                                 </button>
                             ))}
@@ -140,7 +140,7 @@ const CostEstimator: React.FC = () => {
                                             onClick={() => updateField('timeline', opt)}
                                             className={`px-4 py-3 rounded-lg border text-sm font-medium transition-colors
                                                 ${formData.timeline === opt
-                                                    ? 'bg-violet-600 border-violet-500 text-white'
+                                                    ? 'bg-blue-600 border-blue-500 text-white'
                                                     : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400 dark:hover:border-slate-600'
                                                 }`}
                                         >
@@ -166,12 +166,12 @@ const CostEstimator: React.FC = () => {
                                             onClick={() => updateField('security', opt.label)}
                                             className={`px-4 py-3 rounded-lg border text-left transition-colors
                                                 ${formData.security === opt.label
-                                                    ? 'bg-violet-600 border-violet-500 text-white'
+                                                    ? 'bg-blue-600 border-blue-500 text-white'
                                                     : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400 dark:hover:border-slate-600'
                                                 }`}
                                         >
                                             <div className="font-bold text-sm">{opt.label}</div>
-                                            <div className={`text-xs mt-1 ${formData.security === opt.label ? 'text-violet-100' : 'text-slate-500 dark:text-slate-500'}`}>
+                                            <div className={`text-xs mt-1 ${formData.security === opt.label ? 'text-blue-100' : 'text-slate-500 dark:text-slate-500'}`}>
                                                 {opt.desc}
                                             </div>
                                         </button>
@@ -197,7 +197,7 @@ const CostEstimator: React.FC = () => {
                                 value={formData.email}
                                 onChange={(e) => updateField('email', e.target.value)}
                                 placeholder="name@company.com"
-                                className="w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all placeholder:text-slate-500 dark:placeholder:text-slate-600"
+                                className="w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-slate-500 dark:placeholder:text-slate-600"
                             />
                         </div>
 
