@@ -6,7 +6,9 @@ const phrasesLine1 = [
     "Kunst Webseiten", "Onlinestore", "E-Commerce", "Online Store",
     "Digitale Speisekarten", "Buchungssysteme", "Handwerker Portfolio",
     "Start-up Landing Page", "Immobilien Exposés", "Vereins-Apps",
-    "Event Ticketing", "Fitness Coach App"
+    "Event Ticketing", "Fitness Coach App", "SaaS Dashboard",
+    "Learning Platform", "Medical Practice Web", "Real Estate App",
+    "Restaurant Booking"
 ];
 
 const phrasesLine2 = [
@@ -15,27 +17,30 @@ const phrasesLine2 = [
     "Kundenportal für Kanzleien", "Lieferservice App", "Mitarbeiter Dashboard",
     "Interne Tools", "B2B Plattform", "Digitale Visitenkarte",
     "Podcast Webseite", "Fotografen Galerie", "Hochzeitswebseite",
-    "Schichtplaner App", "Inventur Hilfe", "Newsletter Tool", "..."
+    "Schichtplaner App", "Inventur Hilfe", "Newsletter Tool",
+    "Wir wollen automatisieren", "Meine Agentur wächst",
+    "Marktplatz Idee umsetzen", "Kunden besser erreichen",
+    "Papierkram digitalisieren"
 ];
 
 const TextLoop: React.FC = () => {
     return (
-        <div className="w-full py-12 bg-slate-50 dark:bg-slate-950 overflow-hidden flex flex-col gap-4 relative">
+        <div className="w-full py-12 bg-slate-50 dark:bg-black overflow-hidden flex flex-col gap-4 relative">
 
             {/* Abstract Background Blur - Reduced width/intensity */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-0 w-16 md:w-24 h-full bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 opacity-80"></div>
-                <div className="absolute top-0 right-0 w-16 md:w-24 h-full bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 opacity-80"></div>
+                <div className="absolute top-0 left-0 w-16 md:w-24 h-full bg-gradient-to-r from-slate-50 dark:from-black to-transparent z-10 opacity-80"></div>
+                <div className="absolute top-0 right-0 w-16 md:w-24 h-full bg-gradient-to-l from-slate-50 dark:from-black to-transparent z-10 opacity-80"></div>
             </div>
 
             {/* Row 1 - Keywords (Movement Left) */}
             <div className="flex relative items-center">
                 <motion.div
                     className="flex whitespace-nowrap gap-2 md:gap-8"
-                    animate={{ x: [0, -1000] }}
+                    animate={{ x: ["0%", "-33.33%"] }}
                     transition={{
                         repeat: Infinity,
-                        duration: 40,
+                        duration: 200,
                         ease: "linear"
                     }}
                 >
@@ -51,10 +56,10 @@ const TextLoop: React.FC = () => {
             <div className="flex relative items-center">
                 <motion.div
                     className="flex whitespace-nowrap gap-4 md:gap-12"
-                    animate={{ x: [-1000, 0] }}
+                    animate={{ x: ["-33.33%", "0%"] }}
                     transition={{
                         repeat: Infinity,
-                        duration: 55,
+                        duration: 220,
                         ease: "linear"
                     }}
                 >

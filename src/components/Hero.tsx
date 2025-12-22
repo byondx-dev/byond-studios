@@ -9,12 +9,22 @@ import { useTheme } from '../theme/theme';
 
 const Hero: React.FC = () => {
   const { theme } = useTheme();
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
-    <section className="relative w-full h-[700px] md:h-[800px] flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black transition-colors duration-300">
 
       {/* Background with WebGL */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out">
         <FloatingLines
           enabledWaves={['top', 'middle', 'bottom']}
           lineCount={[10, 15, 20]}
@@ -24,34 +34,24 @@ const Hero: React.FC = () => {
           interactive={true}
           parallax={true}
           linesGradient={['#8b5cf6', '#a855f7', '#6366f1']}
-          mixBlendMode={theme === 'dark' ? 'screen' : 'normal'}
+          mixBlendMode={'screen'}
+          globalScale={isMobile ? 1.5 : 1.0}
+          backgroundColor={'#000000'}
         />
       </div>
 
       {/* Content Overlay */}
       <div className="relative z-10 container mx-auto px-4 text-center mt-20">
-        <Reveal width="100%" delay={0.1}>
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-violet-500/30 bg-violet-500/10 backdrop-blur-sm text-violet-600 dark:text-violet-300 text-xs font-semibold uppercase tracking-wider">
-            Premium Digital Agency
-          </div>
-        </Reveal>
 
         <Reveal width="100%" delay={0.2}>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight drop-shadow-sm dark:drop-shadow-lg"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight drop-shadow-lg"
             style={{
               '--hero-gradient': 'var(--shiny-gradient-light, linear-gradient(to right, #7c3aed, #4f46e5))', // fallback light (violet-600)
             } as React.CSSProperties}
           >
             {/* CSS Variable injection for mode-aware gradient */}
             <span className="hidden dark:block" style={{ display: 'none' }} aria-hidden="true">
-              {/* Hack to inject the dark variable without using style tag which might be blocked by CSP or messy */}
-              {/* Actually, best to use a class utility or inline style conditionally, but context is hard to pass style prop.
-                    Let's use the parent style prop + standard classes. 
-                    Wait, I can just conditionally pass the style prop to ShinyText based on a hook? 
-                    No, I can't use hooks inside the return easily without refactoring heavy.
-                    CSS Variable strategy:
-                */}
             </span>
             <style>{`
                 :root { --hero-shine-base: linear-gradient(to right, #7c3aed, #4f46e5); }
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
         </Reveal>
 
         <Reveal width="100%" delay={0.3}>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
             Order systems, business websites, and custom apps designed for growth.
             We transform your requirements into high-performance digital tools.
           </p>
@@ -83,13 +83,13 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/services"
-              className="w-full sm:w-auto px-8 py-3.5 bg-violet-600 hover:bg-violet-700 text-white rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-2.5 sm:px-8 sm:py-3.5 bg-violet-600 hover:bg-violet-700 text-white rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               View Services <ArrowRight size={18} />
             </Link>
             <Link
               to="/contact"
-              className="w-full sm:w-auto px-8 py-3.5 border border-slate-300 dark:border-slate-600 hover:border-violet-600 dark:hover:border-white text-slate-600 dark:text-slate-300 hover:text-white dark:hover:text-white rounded-full font-semibold transition-all bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-violet-600 dark:hover:bg-white/10"
+              className="w-full sm:w-auto px-6 py-2.5 sm:px-8 sm:py-3.5 border border-slate-600 hover:border-white text-slate-300 hover:text-white rounded-full font-semibold transition-all bg-white/5 backdrop-blur-sm hover:bg-white/10 text-sm sm:text-base"
             >
               Contact Us
             </Link>
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Gradient fade at bottom to merge with next section */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white dark:from-black to-transparent z-10 pointer-events-none" />
     </section>
   );
 };

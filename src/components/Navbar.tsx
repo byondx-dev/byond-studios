@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-300">
-      <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-full shadow-lg px-6 py-3 flex items-center justify-between">
+      <div className="bg-white/80 dark:bg-black/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-full shadow-lg px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
         <Link to="/" className="text-xl font-bold tracking-tight flex items-center gap-2">
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full mt-2 left-0 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-4 flex flex-col gap-4 md:hidden"
+            className="absolute top-full mt-2 left-0 w-full bg-white dark:bg-black border border-slate-200 dark:border-white/10 rounded-2xl shadow-xl p-4 flex flex-col gap-4 md:hidden"
           >
             {navLinks.map((link) => (
               <Link

@@ -174,6 +174,7 @@ interface BeamsProps {
     noiseIntensity?: number;
     scale?: number;
     rotation?: number;
+    baseColor?: string;
 }
 
 const Beams: FC<BeamsProps> = ({
@@ -184,7 +185,8 @@ const Beams: FC<BeamsProps> = ({
     speed = 2,
     noiseIntensity = 1.75,
     scale = 0.2,
-    rotation = 0
+    rotation = 0,
+    baseColor = '#000000'
 }) => {
     const meshRef = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>(null!);
 
@@ -232,7 +234,7 @@ const Beams: FC<BeamsProps> = ({
                 },
                 material: { fog: true },
                 uniforms: {
-                    diffuse: new THREE.Color(...hexToNormalizedRGB('#000000')),
+                    diffuse: new THREE.Color(...hexToNormalizedRGB(baseColor)),
                     time: { shared: true, mixed: true, linked: true, value: 0 },
                     roughness: 0.3,
                     metalness: 0.3,
@@ -242,7 +244,7 @@ const Beams: FC<BeamsProps> = ({
                     uScale: scale
                 }
             }),
-        [speed, noiseIntensity, scale]
+        [speed, noiseIntensity, scale, baseColor]
     );
 
     return (

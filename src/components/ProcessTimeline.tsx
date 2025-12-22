@@ -46,7 +46,7 @@ const ProcessTimeline: React.FC = () => {
                     >
                         {/* Connector Line */}
                         {index !== steps.length - 1 && (
-                            <div className="absolute left-[23px] md:left-[29px] top-16 bottom-[-48px] w-0.5 bg-gradient-to-b from-violet-200 to-slate-200 dark:from-violet-900 dark:to-slate-800" />
+                            <div className="absolute left-[23px] md:left-[29px] top-16 bottom-[-48px] w-0.5 bg-gradient-to-b from-violet-500/50 to-slate-800" />
                         )}
 
                         {/* Icon Bubble */}
@@ -58,12 +58,12 @@ const ProcessTimeline: React.FC = () => {
 
                         {/* Content Card */}
                         <div className="flex-1 pt-1 md:pt-3">
-                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 md:p-8 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg dark:hover:shadow-violet-900/10 border border-transparent hover:border-slate-100 dark:hover:border-slate-700 transition-all duration-300">
+                            <div className="bg-white dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 hover:shadow-2xl hover:shadow-violet-900/10 dark:hover:shadow-violet-900/20 border border-slate-100 dark:border-white/5 hover:border-violet-500/30 transition-all duration-300">
                                 <div className="flex items-center justify-between mb-3">
                                     <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
                                         {step.title}
                                     </h3>
-                                    <span className="text-4xl md:text-5xl font-black text-slate-200 dark:text-slate-800 opacity-50 select-none">
+                                    <span className="text-4xl md:text-5xl font-black text-slate-100 dark:text-white/10 select-none">
                                         0{index + 1}
                                     </span>
                                 </div>

@@ -67,16 +67,19 @@ const Services: React.FC = () => {
 
       {/* Beams Background */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
-        <Beams
-          beamWidth={2.9}
-          beamHeight={30}
-          beamNumber={20}
-          lightColor={theme === 'dark' ? '#02a6f7' : '#0ea5e9'} // Bright blue for dark, slightly darker blue for light? Or same.
-          speed={4.1}
-          noiseIntensity={1.75}
-          scale={0.2}
-          rotation={30}
-        />
+        {theme === 'dark' && (
+          <Beams
+            beamWidth={2.9}
+            beamHeight={30}
+            beamNumber={20}
+            lightColor="#02a6f7"
+            baseColor="#000000"
+            speed={4.1}
+            noiseIntensity={1.75}
+            scale={0.2}
+            rotation={30}
+          />
+        )}
       </div>
 
       {/* Content wrapper with relative z-index */}

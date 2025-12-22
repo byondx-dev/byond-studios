@@ -9,6 +9,7 @@ import ShinyText from '../components/ShinyText';
 import TextLoop from '../components/TextLoop';
 import { useTheme } from '../theme/theme';
 import ProcessTimeline from '../components/ProcessTimeline';
+import UseCases from '../components/UseCases';
 
 const Home: React.FC = () => {
   const { theme } = useTheme();
@@ -60,7 +61,9 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden">
       <Hero />
-      <TextLoop />
+      <Reveal width="100%">
+        <TextLoop />
+      </Reveal>
 
       {/* Services Grid */}
       <Section id="services">
@@ -90,11 +93,11 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-
+      <UseCases />
 
       {/* Process Section - Modern Redesign */}
-      <Section className="relative z-10">
-        <Reveal>
+      <Section className="relative z-10 dark:bg-black dark:bg-gradient-to-b dark:from-black dark:via-black dark:to-black border-y border-transparent dark:border-white/5">
+        <Reveal width="100%">
           <div className="mb-20 text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               <ShinyText
@@ -105,7 +108,7 @@ const Home: React.FC = () => {
                 style={shinySilverStyle}
               />
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            <p className="text-slate-400 max-w-2xl mx-auto">
               No complex workflows. Just a streamlined path to your digital product.
             </p>
           </div>
@@ -138,7 +141,7 @@ const Home: React.FC = () => {
                 { icon: <HeartHandshake />, text: "Long-term Support" },
                 { icon: <Smartphone />, text: "Fully Responsive" },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                <div key={i} className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-white/5 rounded-lg">
                   <div className="text-violet-500">{item.icon}</div>
                   <span className="font-medium text-slate-700 dark:text-slate-200">{item.text}</span>
                 </div>
@@ -147,7 +150,7 @@ const Home: React.FC = () => {
           </Reveal>
 
           <Reveal width="100%" delay={0.2}>
-            <div className="bg-slate-900 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+            <div className="bg-slate-900 dark:bg-black border border-white/10 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
               {/* Decorative Code block look */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
               <div className="font-mono text-sm text-slate-300 space-y-2">
@@ -183,7 +186,7 @@ const Home: React.FC = () => {
             { q: "Do you provide support after launch?", a: "Yes, we offer monthly maintenance packages to keep everything secure and updated." }
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.1} width="100%">
-              <div className="border border-slate-200 dark:border-slate-800 rounded-lg p-5 bg-white dark:bg-slate-900/40">
+              <div className="border border-slate-200 dark:border-white/10 rounded-lg p-5 bg-white dark:bg-white/5">
                 <h4 className="font-semibold text-slate-900 dark:text-white mb-2">{item.q}</h4>
                 <p className="text-slate-600 dark:text-slate-400 text-sm">{item.a}</p>
               </div>

@@ -11,3 +11,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  @apply bg-white dark:bg-black text-slate-900 dark:text-slate-100;
+  font-family: 'Inter', sans-serif;
+}

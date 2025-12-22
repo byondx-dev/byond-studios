@@ -8,13 +8,13 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       port: 5173,
-      host: '0.0.0.0',
+      strictPort: true,
+      host: true,
       watch: {
-        usePolling: true, // Fix for WSL2 on Windows filesystem
+        usePolling: true,
       },
-      hmr: {
-        clientPort: 5173,
-      }
+      allowedHosts: true,
+      hmr: false,
     },
     plugins: [
       tailwindcss(),

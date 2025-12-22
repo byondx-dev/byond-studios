@@ -56,6 +56,9 @@ uniform vec2 parallaxOffset;
 uniform vec3 lineGradient[8];
 uniform int lineGradientCount;
 
+uniform float globalScale;
+uniform vec3 iBackgroundColor;
+
 const vec3 BLACK = vec3(0.0);
 const vec3 PINK  = vec3(233.0, 71.0, 245.0) / 255.0;
 const vec3 BLUE  = vec3(47.0,  75.0, 162.0) / 255.0;
@@ -65,14 +68,7 @@ mat2 rotate(float r) {
 }
 
 vec3 background_color(vec2 uv) {
-  vec3 col = vec3(0.0);
-
-  float y = sin(uv.x - 0.2) * 0.3 - 0.1;
-  float m = uv.y - y;
-
-  col += mix(BLUE, BLACK, smoothstep(0.0, 1.0, abs(m)));
-  col += mix(PINK, BLACK, smoothstep(0.0, 1.0, abs(m - 0.8)));
-  return col * 0.5;
+  return iBackgroundColor;
 }
 
 vec3 getLineColor(float t, vec3 baseColor) {
@@ -116,12 +112,13 @@ vec3 getLineColor(float t, vec3 baseColor) {
   }
 
   float m = uv.y - y;
-  return 0.0175 / max(abs(m) + 0.01, 1e-3) + 0.01;
+  return 0.008 / max(abs(m) + 0.01, 1e-3) + 0.002;
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   vec2 baseUv = (2.0 * fragCoord - iResolution.xy) / iResolution.y;
   baseUv.y *= -1.0;
+  baseUv *= globalScale;
   
   if (parallax) {
     baseUv += parallaxOffset;
@@ -135,6 +132,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   if (interactive) {
     mouseUv = (2.0 * iMouse - iResolution.xy) / iResolution.y;
     mouseUv.y *= -1.0;
+    mouseUv *= globalScale;
   }
   
   if (enableBottom) {
@@ -226,6 +224,8 @@ type FloatingLinesProps = {
   parallax?: boolean;
   parallaxStrength?: number;
   mixBlendMode?: React.CSSProperties['mixBlendMode'];
+  globalScale?: number;
+  backgroundColor?: string;
 };
 
 function hexToVec3(hex: string): Vector3 {
@@ -267,7 +267,9 @@ export default function FloatingLines({
   mouseDamping = 0.05,
   parallax = true,
   parallaxStrength = 0.2,
-  mixBlendMode = 'screen'
+  mixBlendMode = 'screen',
+  globalScale = 1.0,
+  backgroundColor = '#000000'
 }: FloatingLinesProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const targetMouseRef = useRef<Vector2>(new Vector2(-1000, -1000));
@@ -361,7 +363,10 @@ export default function FloatingLines({
       lineGradient: {
         value: Array.from({ length: MAX_GRADIENT_STOPS }, () => new Vector3(1, 1, 1))
       },
-      lineGradientCount: { value: 0 }
+      lineGradientCount: { value: 0 },
+      mixBlendMode: { value: 0 },
+      globalScale: { value: globalScale },
+      iBackgroundColor: { value: hexToVec3(backgroundColor) }
     };
 
     if (linesGradient && linesGradient.length > 0) {
@@ -489,7 +494,9 @@ export default function FloatingLines({
     bendStrength,
     mouseDamping,
     parallax,
-    parallaxStrength
+    parallaxStrength,
+    globalScale,
+    backgroundColor
   ]);
 
   return (
