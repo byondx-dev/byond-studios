@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
 
             Websites & Apps <br className="hidden md:block" />
             <ShinyText
-              text="That Drive Business."
+              text="of Future Businesses"
               disabled={false}
               speed={4}
               shineColor="96, 165, 250"
@@ -74,8 +74,8 @@ const Hero: React.FC = () => {
 
         <Reveal width="100%" delay={0.3}>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Order systems, business websites, and custom apps designed for growth.
-            We transform your requirements into high-performance digital tools.
+            We build with the newest technologies digital solutions like Websites or custom apps designed for growth.
+            We transform your requirements into high-performance digital tools of the future
           </p>
         </Reveal>
 
