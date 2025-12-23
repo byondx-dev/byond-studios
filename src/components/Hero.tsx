@@ -58,17 +58,33 @@ const Hero: React.FC = () => {
                 .dark { --hero-shine-base: linear-gradient(to right, #60a5fa, #38bdf8); }
             `}</style>
 
-            Websites & Apps <br className="hidden md:block" />
             <ShinyText
-              text="of Future Businesses"
+              text="Websites"
               disabled={false}
-              speed={4}
-              shineColor="96, 165, 250"
-              className="font-bold pb-2"
+              speed={3}
+              shineColor="255, 255, 255"
+              className="inline-block pb-2"
               style={{
-                '--shiny-base': 'var(--hero-shine-base)'
+                '--shiny-base': 'linear-gradient(to right, #94a3b8, #ffffff, #94a3b8)',
               } as React.CSSProperties}
             />
+            <span className="inline-block text-white mx-2">&</span>
+            <ShinyText
+              text="Apps"
+              disabled={false}
+              speed={3}
+              shineColor="255, 255, 255"
+              className="inline-block pb-2"
+              style={{
+                '--shiny-base': 'linear-gradient(to right, #94a3b8, #ffffff, #94a3b8)',
+              } as React.CSSProperties}
+            />
+            <br className="block" />
+            <span className="font-bold pb-2 text-white">of </span>
+            <br className="md:hidden" />
+            <span className="font-bold pb-2 text-white">
+              Future Businesses
+            </span>
           </h1>
         </Reveal>
 
